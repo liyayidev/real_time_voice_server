@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Voice Client</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/msgpack-lite/0.1.26/msgpack.min.js"></script>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #111; color: #eee; }
+        .container { max_width: 800px; margin: 0 auto; }
+        input, button { padding: 10px; background: #333; color: white; border: 1px solid #555; }
+        button { cursor: pointer; }
+        button:hover { background: #555; }
+        #log { height: 300px; overflow-y: scroll; border: 1px solid #333; padding: 10px; margin-top: 20px; font-size: 12px; }
+        .status { margin: 10px 0; font-weight: bold; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voice Server Test Client</h1>
+        
+        <div class="controls">
+            <input type="text" id="username" placeholder="Username" value="web-user">
+            <input type="text" id="roomId" placeholder="Room ID" value="ai-web-test">
+            <button id="connectBtn">Connect</button>
+            <button id="disconnectBtn" disabled>Disconnect</button>
+        </div>
+        
+        <div class="status" id="status">Status: Disconnected</div>
+        
+        <div class="controls">
+            <label>
+                <input type="checkbox" id="micToggle" disabled> Enable Microphone
+            </label>
+            <span id="audioStats">Audio: 0 bytes sent / 0 bytes recv</span>
+        </div>
+
+        <div id="log"></div>
+    </div>
+    <script src="/static/client.js"></script>
+</body>
+</html>
